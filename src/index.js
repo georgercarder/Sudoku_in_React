@@ -129,8 +129,8 @@ class Game extends React.Component {
 		this.setState({checking: 1})
 		//this.state.squares
 		var SQUARES=this.state.squares.slice()
-		var r1=SQUARES.slice(0,4)
-		var r2=SQUARES.slice(4,8)
+		var r1=SQUARES.slice(0,4)	// I'm going to generalize this section
+		var r2=SQUARES.slice(4,8)	// first priority was getting something working with REACT
 		var r3=SQUARES.slice(8,12)
 		var r4=SQUARES.slice(12,16)
 		var c1=[SQUARES[0],SQUARES[4],SQUARES[8],SQUARES[12]]
