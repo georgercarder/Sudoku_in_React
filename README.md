@@ -1,5 +1,5 @@
 # Sudoku in React
 
-## My first try building a project in React. I'm hooked!
+## My first try building a project using React. I'm hooked!
 
 
