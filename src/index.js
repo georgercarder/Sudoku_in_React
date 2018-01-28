@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Center from 'react-center';
 
 function Square(props){
 		return(
@@ -178,6 +179,7 @@ class Game extends React.Component {
 
 	  render() {
 		      return (
+			      <body>
 			            <div className="game">
 			                <Board 
 			      			squares={this.state.squares}
@@ -187,15 +189,19 @@ class Game extends React.Component {
 			      			gamestatus={() => this.gamestatus()}
 			      			onClick={(i) => this.handleClick(i)}/>
 			            </div>
+			      </body>
 			          );
 		    }
 }
 
 
+
 // ========================================
 
 ReactDOM.render(
+	<Center>
   <Game />,
+	</Center>,
   document.getElementById('root')
 );
 
