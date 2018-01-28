@@ -13,7 +13,7 @@ function Square(props){
 
 function RedSquare(props){
 		return(
-			<button className="square" style={{"background-color":"red"}}>
+			<button className="redsquare">
 			{props.value}
 			</button>
 		);
@@ -41,7 +41,7 @@ class Board extends React.Component {
 			      <center>
 			              <div className="status"><h1>{welcome}</h1></div>
 				      <div className="gamestatus">{this.props.gamestatus()}</div>
-
+				<div className="table">
 			              <div className="board-row">
 			                {this.renderSquare(0)}
 			                {this.renderSquare(1)}
@@ -66,8 +66,7 @@ class Board extends React.Component {
 			                {this.renderSquare(14)}
 			                {this.renderSquare(15)} 
 			              </div>
-					<div className="start" onClick={() => this.props.start()}><h3>START</h3></div>
-			      <div className="check" onClick={() => this.props.gamecheck()}><h3>CHECK</h3></div>
+			      </div>
 					</center>
 			            </div>
 			          );
@@ -84,13 +83,24 @@ class Game extends React.Component {
 			win: false,
 			checking: 0,
 			message: null,
-			started: null,
+			startorclear: 'start',
+			started: 0,
 		};
 	}
 
+	startorclear(){
+		if(this.state.startorclear==='start'){
+			return(<h3>START</h3>);	
+		} else {
+			return(<h3>CLEAR</h3>);
+		}
+	}
+
 	start(){
-		const squares= this.state.squares.slice();
+		if(this.state.startorclear==='start'){
 		const red=this.state.red.slice()
+		const squares= this.state.squares.slice();
+
 		squares[0]=1
 		squares[1]=4
 		squares[8]=3
@@ -102,7 +112,19 @@ class Game extends React.Component {
 		red[10]=1
 		red[14]=2
 
-		this.setState({squares: squares, red: red, started: 1,});
+		this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
+		} else {
+		this.setState({	
+			squares: Array(16).fill(null),	
+			red: Array(16).fill(null),
+			win: false,
+			checking: 0,
+			message: null,
+			startorclear: 'start',
+		}
+		);
+		}
+
 	}
 
 	handleClick(i){
@@ -122,7 +144,7 @@ class Game extends React.Component {
 			return (<h3>keep trying, game in progress</h3>);
 
 		}else {
-			return (<h1>Congratulations Sudoku Master!</h1>);	
+			return (<h3>CONGRATULATIONS SUDOKU MASTER!</h3>);	
 		}
 	}
 
@@ -184,13 +206,17 @@ class Game extends React.Component {
 			                <Board 
 			      			squares={this.state.squares}
 			      			red={this.state.red}
-			      			start={() => this.start()}
-			      			gamecheck={() => this.gamecheck()}
 			      			gamestatus={() => this.gamestatus()}
 			      			onClick={(i) => this.handleClick(i)}/>
 			            </div>
-			      </body>
-			          );
+			      <center>
+			      <div>
+					<div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
+			      <div className="check" onClick={() => this.gamecheck()}><h3>CHECK</h3></div>
+			          </div>
+			      </center>
+		      		</body>
+		      );
 		    }
 }
 
