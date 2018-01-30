@@ -121,6 +121,7 @@ class Game extends React.Component {
 			checking: 0,
 			message: null,
 			startorclear: 'start',
+			started: 0,
 		}
 		);
 		}
