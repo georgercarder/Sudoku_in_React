@@ -165,12 +165,6 @@ class Game extends React.Component {
     }
   }
 
-	gamecheck2(){
-		this.setState({checking: 1})	
-		//this.state.squares
-		var SQUARES=this.state.squares.slice()
-
-	}
   gamecheck(){
     this.setState({checking: 1})
     //this.state.squares
@@ -180,8 +174,9 @@ class Game extends React.Component {
 
     var decision=true
 		// rows
+		let set = new Set()
 		for(var i=0;i<(rank**2);i++){
-			let set = new Set()
+			set.clear()
 			for(var j=0;j<=(rank**2);j++){
 				set.add(SQUARES[j+i*(rank**2)])
 			}
@@ -192,7 +187,7 @@ class Game extends React.Component {
 		}
 		// cols
     for(var j=0;j<(rank**2);j++){
-      let set = new Set()
+      set.clear()
       for(var i=0;i<=(rank**2);i++){
         set.add(SQUARES[j+i*(rank**2)])
       }
@@ -203,6 +198,31 @@ class Game extends React.Component {
    }
 
 		// boxes will be difficult...
+		var b = 0
+		let box = new Set()
+		while(b<rank**2){
+			for(var i=0;i<rank;i++){
+				for(var j=0;j<rank;j++){
+					box.clear()
+					for(var ii=rank*i;ii<rank*(i+1);ii++){
+						for(var jj=rank*j;jj<rank*(j+1);jj++){
+							box.add(SQUARES[jj+(rank**2)*ii])
+							b=b+1
+						}
+					}
+					if(box.size<(rank**2)){
+						decision=false
+						break
+					}
+				}
+			if(decision===false){
+				break
+			}
+			}
+			if(decision===false){
+				break
+			}
+		}
 
     if( decision===true ){
       this.setState({win: true,});  
@@ -228,6 +248,7 @@ class Game extends React.Component {
             <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
             <div className="check" onClick={() => this.gamecheck()}><h3>CHECK</h3></div>
           </div>
+			
         </center>
       </body>
     );
