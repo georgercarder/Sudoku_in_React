@@ -190,39 +190,19 @@ class Game extends React.Component {
 				break
 			}
 		}
-
 		// cols
-		for(var j=0;j<(rank**2);j++){
-			let set = new Set()
-			for(var i=0;i<=(rank**2);i++){
-				set.add(SQUARES[j+i*(rank**2)])
-			}
-			if(set.size<(rank**2)){
-				decision=false
-				break
-			}
-		}
+    for(var j=0;j<(rank**2);j++){
+      let set = new Set()
+      for(var i=0;i<=(rank**2);i++){
+        set.add(SQUARES[j+i*(rank**2)])
+      }
+      if(set.size<(rank**2)){
+        decision=false
+        break
+      }
+   }
 
 		// boxes will be difficult...
-		var b=0
-		while(b<rank**2){
-			for(var i=0; i<rank;i++){
-				for(var j=0;j<rank;j++){
-					var box = new Set()
-					for(var ii=rank*i;ii<rank*(i+1);ii++){
-						for(var jj=rank*j;jj<rank*(j+1);jj++){
-							box.add(SQUARES[jj+(rank**2)*ii])
-							if(box.size<(rank**2)){
-								decision=false
-								break
-							} else {
-								b=b+1
-							}
-						}	
-					}
-				}	
-			}
-		}
 
     if( decision===true ){
       this.setState({win: true,});  
