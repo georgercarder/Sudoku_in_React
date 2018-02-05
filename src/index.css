@@ -61,19 +61,44 @@ body {
   flex-direction: row;
 }
 
+.rank {
+  display: inline-block;
+  background-color: #ADFF2F;
+  border-radius: 17%;
+  padding: 1px 12px;
+  border: 2px solid #E6E6FA;
+}
+
+.difficulty {
+  display: inline-block;
+  background-color: #ADFF2F;
+  border-radius: 17%;
+  padding: 1px 12px;
+  border: 2px solid #E6E6FA;
+}
+
+.loadpuzzles {
+  display: inline-block;
+  background-color: #ADFF2F;
+  border-radius: 17%;
+  padding: 1px 12px;
+  border: 2px solid #E6E6FA;
+}
+
+
 .start {
   display: inline-block;
   background-color: #ADFF2F;
-  border-radius: 47%;
-  padding: 20px;
-  border: 8px solid #E6E6FA; 
+  border-radius: 17%;
+  padding: 1px 12px;
+  border: 2px solid #E6E6FA; 
 }
 
 .check {
   display: inline-block;
   background-color: #ADFF2F;
-  border-radius: 47%;
-  padding: 20px;
-  border: 8px solid #E6E6FA;
+  border-radius: 17%;
+  padding: 1px 12px;
+  border: 2px solid #E6E6FA;
 }
 

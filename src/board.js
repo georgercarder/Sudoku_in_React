@@ -43,17 +43,12 @@ class Board extends React.Component {
 				}
 
 	  render() {
-			    const welcome = 'Welcome to Sudoku!';
 			      return (
 							        <div>
 							          <center>
-							            <div className="status"><h1>{welcome}</h1></div>
-							            <div className="gamestatus">{this.props.gamestatus()}</div>
 													<div className="table">
 													{this.buildtable(this.props.rank)}
 													</div>
-													<div className="rank"><h3>Rank</h3></div>
-													<div className="difficulty"><h3>Difficulty</h3></div>
 							          </center>
 							        </div>
 							      );

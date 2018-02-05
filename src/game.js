@@ -20,29 +20,23 @@ class Game extends React.Component {
   }
 
   setRank(){
-		const rank = this.state.rank.slice();
-		if(rank===2){
-			rank[0] = 3
+		if(this.state.rank===2){
+		  this.setState({rank: 3})	
 		} else {
-			rank[0] = 2
+			this.setState({rank: 2})	
 		}
-    this.setState({rank: rank});
-
 	}
 
-	setDifficulty(){
-		const difficulty = this.state.difficulty.slice();
-		difficulty[0] = (difficulty%10)+1
-		this.setState({difficulty: difficulty})
+	setDiff(){
+		var difficulty = this.state.difficulty
+		this.setState({difficulty: (difficulty%10)+1})
 	}
-
-
 
   startorclear(){
     if(this.state.startorclear==='start'){
-      return(<h3>START</h3>);  
+      return(<h3>start</h3>);  
     } else {
-      return(<h3>CLEAR</h3>);
+      return(<h3>clear</h3>);
     }
   }
 
@@ -159,8 +153,26 @@ class Game extends React.Component {
   }
 
   render() {
+		const welcome = 'Welcome to Sudoku!';
+	  const rankDiff = 'rank='+this.state.rank+' difficulty='+this.state.difficulty;
+
     return (
       <body>
+				<center>
+			<div className="status"><h1>{welcome}</h1><h3>{rankDiff}</h3></div>
+			          <div className="gamestatus">{this.gamestatus()}</div>
+
+
+					<div>
+						<div className="rank" onClick={() => this.setRank()}><h3>rank</h3></div>
+			      <div className="difficulty" onClick={() => this.setDiff()}><h3>difficulty</h3></div>
+						<div className="loadpuzzles"><h3>load</h3></div>
+			</div>
+			<div>
+            <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
+            <div className="check" onClick={() => this.gamecheck()}><h3>check</h3></div>
+					</div>
+			
         <div className="game">
           <Board
 						rank={this.state.rank}
@@ -170,13 +182,7 @@ class Game extends React.Component {
             gamestatus={() => this.gamestatus()}
             onClick={(i) => this.handleClick(i)}/>
         </div>
-        <center>
-          <div>
-            <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
-            <div className="check" onClick={() => this.gamecheck()}><h3>CHECK</h3></div>
-          </div>
-			
-        </center>
+			</center>
       </body>
     );
   }
