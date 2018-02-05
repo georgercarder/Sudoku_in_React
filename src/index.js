@@ -42,13 +42,13 @@ class Board extends React.Component {
 
 	buildrow(i){
 		var row=[]
-		for (var j=1;j<=this.state.rank**2;j++){
-			row.push(this.renderSquare({i}))	
+		for (var j=0;j<this.state.rank**2;j++){
+			var index=j+i*(this.state.rank**2)
+			row.push(this.renderSquare(index))	
 		}
 		return	<div className='board-row'>
 							{row}
 						</div>
-					
 	}
 
 	buildtable(rank) {
@@ -56,7 +56,7 @@ class Board extends React.Component {
 			return <h3>build table</h3>
 		} else {
 			var table=[]
-			for(var i=1;i<=rank**2;i++){
+			for(var i=0;i<rank**2;i++){
 				table.push(this.buildrow(i))	
 			}
 			return table
@@ -65,8 +65,6 @@ class Board extends React.Component {
 
   render() {
     const welcome = 'Welcome to Sudoku!';
-		//
-		//
       return (
         <div>
           <center>
@@ -98,7 +96,9 @@ class Board extends React.Component {
                 {this.renderSquare(15)} 
               </div>
             </div>
-						{this.buildtable(this.state.rank)}	
+						<div className="table">
+						{this.buildtable(this.state.rank)}
+						</div>
 						<div className="rank"><h3>Rank</h3></div>
 						<div className="difficulty"><h3>Difficulty</h3></div>
           </center>
