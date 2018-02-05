@@ -20,12 +20,6 @@ function RedSquare(props){
 }
 
 class Board extends React.Component {
-	constructor(props){
-    super(props);
-    this.state={
-			rank: 3,
-		}
-	}
    
   renderSquare(i) {
     if(this.props.red[i]===null){
@@ -42,8 +36,8 @@ class Board extends React.Component {
 
 	buildrow(i){
 		var row=[]
-		for (var j=0;j<this.state.rank**2;j++){
-			var index=j+i*(this.state.rank**2)
+		for (var j=0;j<this.props.rank**2;j++){
+			var index=j+i*(this.props.rank**2)
 			row.push(this.renderSquare(index))	
 		}
 		return	<div className='board-row'>
@@ -70,34 +64,8 @@ class Board extends React.Component {
           <center>
             <div className="status"><h1>{welcome}</h1></div>
             <div className="gamestatus">{this.props.gamestatus()}</div>
-            <div className="table">
-				 <div className="board-row">
-                {this.renderSquare(0)}
-                {this.renderSquare(1)}
-                {this.renderSquare(2)}
-                {this.renderSquare(3)}
-              </div>
-              <div className="board-row">
-                {this.renderSquare(4)}
-                {this.renderSquare(5)}
-                {this.renderSquare(6)}
-                {this.renderSquare(7)} 
-              </div>
-              <div className="board-row">
-                {this.renderSquare(8)}
-                {this.renderSquare(9)}
-                {this.renderSquare(10)}
-                {this.renderSquare(11)} 
-              </div> 
-              <div className="board-row">
-                {this.renderSquare(12)} 
-                {this.renderSquare(13)}
-                {this.renderSquare(14)}
-                {this.renderSquare(15)} 
-              </div>
-            </div>
 						<div className="table">
-						{this.buildtable(this.state.rank)}
+						{this.buildtable(this.props.rank)}
 						</div>
 						<div className="rank"><h3>Rank</h3></div>
 						<div className="difficulty"><h3>Difficulty</h3></div>
@@ -112,6 +80,8 @@ class Game extends React.Component {
   constructor(props){
     super(props);
     this.state={
+			rank: 2,
+			difficulty: 7,
       squares: Array(16).fill(null),  
       red: Array(16).fill(null),
       win: false,
@@ -121,6 +91,25 @@ class Game extends React.Component {
       started: 0,
     };
   }
+
+  setRank(){
+		const rank = this.state.rank.slice();
+		if(rank===2){
+			rank[0] = 3
+		} else {
+			rank[0] = 2
+		}
+    this.setState({rank: rank});
+
+	}
+
+	setDifficulty(){
+		const difficulty = this.state.difficulty.slice();
+		difficulty[0] = (difficulty%10)+1
+		this.setState({difficulty: difficulty})
+	}
+
+
 
   startorclear(){
     if(this.state.startorclear==='start'){
@@ -146,7 +135,8 @@ class Game extends React.Component {
       this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
     } else {
       this.setState({  
-        squares: Array(16).fill(null),  
+				rank: 2, 
+				squares: Array(16).fill(null),  
         red: Array(16).fill(null),
         win: false,
         checking: 0,
@@ -175,47 +165,44 @@ class Game extends React.Component {
     }
   }
 
+	gamecheck2(){
+		this.setState({checking: 1})	
+		//this.state.squares
+		var SQUARES=this.state.squares.slice()
+
+	}
   gamecheck(){
     this.setState({checking: 1})
     //this.state.squares
     var SQUARES=this.state.squares.slice()
-    var r1=SQUARES.slice(0,4)  // I'm going to generalize this section
-    var r2=SQUARES.slice(4,8)  // first priority was getting something working with REACT
-    var r3=SQUARES.slice(8,12)
-    var r4=SQUARES.slice(12,16)
-    var c1=[SQUARES[0],SQUARES[4],SQUARES[8],SQUARES[12]]
-    var c2=[SQUARES[1],SQUARES[5],SQUARES[9],SQUARES[13]]
-    var c3=[SQUARES[2],SQUARES[6],SQUARES[10],SQUARES[14]]
-    var c4=[SQUARES[3],SQUARES[7],SQUARES[11],SQUARES[15]]
-    var b1=[SQUARES[0],SQUARES[1],SQUARES[4],SQUARES[5]]
-    var b2=[SQUARES[2],SQUARES[3],SQUARES[6],SQUARES[7]]
-    var b3=[SQUARES[8],SQUARES[9],SQUARES[12],SQUARES[13]]
-    var b4=[SQUARES[10],SQUARES[11],SQUARES[14],SQUARES[15]]
-    //
-    var BIG=[r1,r2,r3,r4,c1,c2,c3,c4,b1,b2,b3,b4]
+		var rank=this.state.rank
+    // ROWS COLUMNS BOXES
 
     var decision=true
+		// rows
+		for(var i=0;i<=(rank**2);i++){
+			let set = new Set()
+			for(var j=0;j<=(rank**2);j++){
+				set.add(SQUARES[j+i*(rank**2)])
+			}
+			if(set.size<(rank**2)){
+				decision=false
+				break
+		}
 
-    for (var i=0;i<12;i++){
-      for(var j=1;j<5;j++){
-        var found_1=BIG[i].find(function(x){
-          return x===1;  
-        });
-        var found_2=BIG[i].find(function(x){
-          return x===2;  
-        });
-        var found_3=BIG[i].find(function(x){
-          return x===3;  
-        });
-        var found_4=BIG[i].find(function(x){
-          return x===4;  
-        });
+		// cols
+		for(var j=0;j<=(rank**2);j++){
+			let set = new Set()
+			for(var i=0;i<=(rank**2);i++){
+				set.add(SQUARES[j+i*(rank**2)])
+			}
+			if(set.size<(rank**2)){
+				decision=false
+				break
+		}
 
-        if (typeof found_1 == "undefined"||typeof found_2 == "undefined"||typeof found_3 == "undefined"||typeof found_4 == "undefined"){
-          decision=false
-        }
-      }  
-    }
+		// boxes will be difficult....#########################################
+
     if( decision===true ){
       this.setState({win: true,});  
     } else {
@@ -227,7 +214,9 @@ class Game extends React.Component {
     return (
       <body>
         <div className="game">
-          <Board 
+          <Board
+						rank={this.state.rank}
+						difficulty={this.state.difficulty}
             squares={this.state.squares}
             red={this.state.red}
             gamestatus={() => this.gamestatus()}
