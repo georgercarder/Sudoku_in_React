@@ -20,6 +20,13 @@ function RedSquare(props){
 }
 
 class Board extends React.Component {
+	constructor(props){
+    super(props);
+    this.state={
+			rank: 3,
+		}
+	}
+   
   renderSquare(i) {
     if(this.props.red[i]===null){
       return <Square
@@ -33,15 +40,40 @@ class Board extends React.Component {
     }
   }
 
+	buildrow(i){
+		var row=[]
+		for (var j=1;j<=this.state.rank**2;j++){
+			row.push(this.renderSquare({i}))	
+		}
+		return	<div className='board-row'>
+							{row}
+						</div>
+					
+	}
+
+	buildtable(rank) {
+		if(rank === 0){
+			return <h3>build table</h3>
+		} else {
+			var table=[]
+			for(var i=1;i<=rank**2;i++){
+				table.push(this.buildrow(i))	
+			}
+			return table
+		}
+	}
+
   render() {
     const welcome = 'Welcome to Sudoku!';
+		//
+		//
       return (
         <div>
           <center>
             <div className="status"><h1>{welcome}</h1></div>
             <div className="gamestatus">{this.props.gamestatus()}</div>
             <div className="table">
-              <div className="board-row">
+				 <div className="board-row">
                 {this.renderSquare(0)}
                 {this.renderSquare(1)}
                 {this.renderSquare(2)}
@@ -66,6 +98,9 @@ class Board extends React.Component {
                 {this.renderSquare(15)} 
               </div>
             </div>
+						{this.buildtable(this.state.rank)}	
+						<div className="rank"><h3>Rank</h3></div>
+						<div className="difficulty"><h3>Difficulty</h3></div>
           </center>
         </div>
       );
