@@ -134,17 +134,14 @@ class Game extends React.Component {
     if(this.state.startorclear==='start'){
       const red=this.state.red.slice()
       const squares= this.state.squares.slice();
-
-      squares[0]=1
-      squares[1]=4
-      squares[8]=3
-      squares[10]=1
-      squares[14]=2
-      red[0]=1
-      red[1]=4
-      red[8]=3
-      red[10]=1
-      red[14]=2
+			var puzzle=[1,4,0,0,0,0,0,0,3,0,1,0,0,0,2,0]
+	
+			for(var i=0;i<16;i++){
+				if(puzzle[i]!==0){
+					squares[i]=puzzle[i]
+					red[i]=puzzle[i]
+				}
+			}
 
       this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
     } else {
