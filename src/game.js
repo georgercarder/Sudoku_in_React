@@ -179,7 +179,7 @@ class Game extends React.Component {
 		}
 
     if( decision===true ){
-      this.setState({win: true,});  
+      this.setState({win: true, red: this.state.squares});  
     } else {
 			this.setState({win: false, message:1});
 			setTimeout(function() {this.setState({message: 2})}.bind(this),1200)
