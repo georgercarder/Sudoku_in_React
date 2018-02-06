@@ -16,6 +16,7 @@ class Game extends React.Component {
       message: null,
       startorclear: 'start',
       started: 0,
+			puzzles: this.props.puzzles,
     };
   }
 

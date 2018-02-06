@@ -21,7 +21,7 @@ class Site extends React.Component {
 
 	changepage(i){
 		if (i===1){
-			this.setState({page:  <Game />,})
+			this.setState({page:  <Game puzzles={this.state.puzzles}/>,})
 		}
 	}
 
