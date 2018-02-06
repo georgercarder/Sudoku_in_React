@@ -78,10 +78,10 @@ class Game extends React.Component {
     if(this.state.started!==1){
       return (<h3>Push 'start' to start game</h3>)  
     } else if (this.state.win===false&&this.state.message!==1){
-      return (<h3>status: game in progress</h3>);
+      return (<h3>game in progress</h3>);
     } else if (this.state.win===false&&this.state.message===1){
-      return (<h3>keep trying, game in progress</h3>);
-    }else {
+      return (<h3>nope, keep trying</h3>);
+		}else {
       return (<h3>CONGRATULATIONS SUDOKU MASTER!</h3>);  
     }
   }
@@ -148,7 +148,8 @@ class Game extends React.Component {
     if( decision===true ){
       this.setState({win: true,});  
     } else {
-      this.setState({win: false, message: 1});
+			this.setState({win: false, message:1});
+			setTimeout(function() {this.setState({message: 2})}.bind(this),1200)
     }
   }
 
