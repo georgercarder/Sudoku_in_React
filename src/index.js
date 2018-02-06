@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Center from 'react-center';
-import Game from './game';
+import Site from './site';
 
 
 
@@ -10,7 +10,7 @@ import Game from './game';
 
 ReactDOM.render(
   <Center>
-    <Game />,
+    <Site />,
   </Center>,
   document.getElementById('root')
 );

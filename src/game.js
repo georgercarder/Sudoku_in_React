@@ -157,7 +157,7 @@ class Game extends React.Component {
 	  const rankDiff = 'rank='+this.state.rank+' difficulty='+this.state.difficulty;
 
     return (
-      <body>
+      <div>
 				<center>
 			<div className="status"><h1>{welcome}</h1><h3>{rankDiff}</h3></div>
 			          <div className="gamestatus">{this.gamestatus()}</div>
@@ -183,7 +183,7 @@ class Game extends React.Component {
             onClick={(i) => this.handleClick(i)}/>
         </div>
 			</center>
-      </body>
+      </div>
     );
   }
 }
