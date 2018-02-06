@@ -17,32 +17,32 @@ body {
 .square {
   background: #fff;
   border: 1px solid #999;
-  float: left;
+	float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 80px;
+  height: 60px;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
-  width: 80px;
+  width: 60px;
 }
 
 
 .redsquare {
   background: #99FFAA;
   border: 1px solid #999;
-  float: left;
+	float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 80px;
+  height: 60px;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
-  width: 80px;
+  width: 60px;
 }
 
 

@@ -16,7 +16,7 @@ class Site extends React.Component {
   }
 
 	handleFetch(){
-		axios.get('http://maps.googleapis.com/maps/api/geocode/json?address=chicago').then((response) => this.setState({puzzles: response.status}))
+		axios.get('http://georgercarder.com/fetch/').then((response) => this.setState({puzzles: JSON.stringify(response.data)}))
 	}
 
 	changepage(i){
