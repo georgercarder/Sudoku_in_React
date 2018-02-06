@@ -7,8 +7,11 @@ class Game extends React.Component {
   constructor(props){
     super(props);
     this.state={
+			prepuzzle: [1,4,0,0,0,0,0,0,3,0,1,0,0,0,2,0],
 			rank: 2,
+			prerank: 2,
 			difficulty: 7,
+			predifficulty: 7,
       squares: Array(16).fill(null),  
       red: Array(16).fill(null),
       win: false,
@@ -21,16 +24,44 @@ class Game extends React.Component {
   }
 
   setRank(){
-		if(this.state.rank===2){
-		  this.setState({rank: 3})	
+		if(this.state.prerank===2){
+		  this.setState({prerank: 3})	
 		} else {
-			this.setState({rank: 2})	
+			this.setState({prerank: 2})	
 		}
 	}
 
 	setDiff(){
-		var difficulty = this.state.difficulty
-		this.setState({difficulty: (difficulty%10)+1})
+		var predifficulty = this.state.predifficulty
+		this.setState({predifficulty: (predifficulty%10)+1})
+	}
+
+	load(){
+		this.findPuzzle(this.state.prerank,this.state.predifficulty);
+		this.setState({
+			rank: this.state.prerank, 
+			difficulty: this.state.predifficulty,
+			squares: Array(this.state.prerank**4).fill(null),
+			red: Array(this.state.prerank**4).fill(null),
+			win: false,
+			message: null,
+			startorclear: 'start',
+			started: 0,
+			})
+			setTimeout(function() {this.start()}.bind(this),1)
+	}
+
+	findPuzzle(rank,diff){
+		var l = this.state.puzzles.length
+		var found = false
+		var r = 0
+		while(found === false){
+			r = Math.floor(Math.random()*l)
+			if(this.state.puzzles[r].rank===rank && this.state.puzzles[r].difficulty===diff){
+				this.setState({prepuzzle: this.state.puzzles[r].puzzle.slice()})
+				found = true
+			}
+		}
 	}
 
   startorclear(){
@@ -45,9 +76,10 @@ class Game extends React.Component {
     if(this.state.startorclear==='start'){
       const red=this.state.red.slice()
       const squares= this.state.squares.slice();
-			var puzzle=[1,4,0,0,0,0,0,0,3,0,1,0,0,0,2,0]
+			var puzzle=this.state.prepuzzle;
+				/*[1,4,0,0,0,0,0,0,3,0,1,0,0,0,2,0]*/
 	
-			for(var i=0;i<16;i++){
+			for(var i=0;i<this.state.rank**4;i++){
 				if(puzzle[i]!==0){
 					squares[i]=puzzle[i]
 					red[i]=puzzle[i]
@@ -58,8 +90,8 @@ class Game extends React.Component {
     } else {
       this.setState({  
 				rank: 2, 
-				squares: Array(16).fill(null),  
-        red: Array(16).fill(null),
+				squares: Array(this.state.rank**4).fill(null),  
+        red: Array(this.state.rank**4).fill(null),
         win: false,
         checking: 0,
         message: null,
@@ -71,7 +103,7 @@ class Game extends React.Component {
 
   handleClick(i){
     const squares = this.state.squares.slice();
-    squares[i]=(squares[i]%4)+1;
+    squares[i]=(squares[i]%this.state.rank**2)+1;
     this.setState({squares: squares});
   }
   
@@ -156,7 +188,7 @@ class Game extends React.Component {
 
   render() {
 		const welcome = 'Welcome to Sudoku!';
-	  const rankDiff = 'rank='+this.state.rank+' difficulty='+this.state.difficulty;
+	  const rankDiff = '*rank='+this.state.prerank+' *difficulty='+this.state.predifficulty;
 
     return (
       <div>
@@ -166,9 +198,9 @@ class Game extends React.Component {
 
 
 					<div>
-						<div className="rank" onClick={() => this.setRank()}><h3>rank</h3></div>
-			      <div className="difficulty" onClick={() => this.setDiff()}><h3>difficulty</h3></div>
-						<div className="loadpuzzles"><h3>load</h3></div>
+						<div className="rank" onClick={() => this.setRank()}><h3>set rank</h3></div>
+			      <div className="difficulty" onClick={() => this.setDiff()}><h3>set difficulty</h3></div>
+						<div className="loadpuzzles" onClick={() => this.load()}><h3>load</h3></div>
 			</div>
 			<div>
             <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>

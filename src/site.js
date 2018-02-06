@@ -16,12 +16,12 @@ class Site extends React.Component {
   }
 
 	handleFetch(){
-		axios.get('http://georgercarder.com/fetch/').then((response) => this.setState({puzzles: JSON.stringify(response.data)}))
+		axios.get('http://georgercarder.com/fetch/').then((response) => this.setState({puzzles: response.data}))
 	}
 
 	changepage(i){
 		if (i===1){
-			this.setState({page:  <Game puzzles={this.state.puzzles}/>,})
+			this.setState({page:  <Game puzzles={this.state.puzzles}/>})
 		}
 	}
 
@@ -30,7 +30,6 @@ class Site extends React.Component {
     return (
       <body>
 				{this.state.page}
-				{this.state.puzzles}
       </body>
     );
   }

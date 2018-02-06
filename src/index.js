@@ -10,7 +10,7 @@ import Site from './site';
 
 ReactDOM.render(
   <Center>
-    <Site />,
+    <Site />
   </Center>,
   document.getElementById('root')
 );
