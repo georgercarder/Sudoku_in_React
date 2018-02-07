@@ -1,7 +1,13 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+	font-family: 'Erica One', cursive;
   margin: 20px;
-  background-color: #E6E6FA;
+  background-color: #87CEEB;
+	color: #FEFDE3;
+	text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+}
+
+.game {
+	display: inline-block;
 }
 
 .board-row:after {
@@ -16,6 +22,7 @@ body {
 
 .square {
   background: #fff;
+	color: #87CEEB;
   border: 1px solid #999;
 	float: left;
   font-size: 24px;
@@ -31,7 +38,7 @@ body {
 
 
 .redsquare {
-  background: #99FFAA;
+  background: #fff;
   border: 1px solid #999;
 	float: left;
   font-size: 24px;
@@ -62,43 +69,43 @@ body {
 }
 
 .rank {
-  display: inline-block;
-  background-color: #ADFF2F;
-  border-radius: 17%;
+  background-color: #FEFDE3;
+  border-radius: 47%;
   padding: 1px 12px;
-  border: 2px solid #E6E6FA;
+	color: grey;
+  border: 2px solid #87CEEB;
 }
 
 .difficulty {
-  display: inline-block;
-  background-color: #ADFF2F;
-  border-radius: 17%;
+  background-color: #FEFDE3;
+  border-radius: 47%;
   padding: 1px 12px;
-  border: 2px solid #E6E6FA;
+  border: 2px solid #FEFDE3;
+	color: grey;
+	border: 2px solid #87CEEB;
 }
 
 .loadpuzzles {
-  display: inline-block;
-  background-color: #ADFF2F;
-  border-radius: 17%;
+  background-color: #FEFDE3;
+  border-radius: 47%;
   padding: 1px 12px;
-  border: 2px solid #E6E6FA;
+	color: grey;
+  border: 2px solid #87CEEB;
 }
 
 
 .start {
-  display: inline-block;
-  background-color: #ADFF2F;
-  border-radius: 17%;
+  background-color: #FEFDE3;
+  border-radius: 47%;
   padding: 1px 12px;
-  border: 2px solid #E6E6FA; 
+	color: grey;
+  border: 2px solid #87CEEB; 
 }
 
 .check {
-  display: inline-block;
-  background-color: #ADFF2F;
-  border-radius: 17%;
-  padding: 1px 12px;
-  border: 2px solid #E6E6FA;
+  background-color: #FEFDE3;
+  border-radius: 47%;
+	color: grey;
+  border: 2px solid #87CEEB;
 }
 

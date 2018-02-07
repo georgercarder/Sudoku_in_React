@@ -7,7 +7,7 @@ class Game extends React.Component {
   constructor(props){
     super(props);
     this.state={
-			prepuzzle: [1,4,0,0,0,0,0,0,3,0,1,0,0,0,2,0],
+			prepuzzle: this.props.puzzles[Math.floor(Math.random()*30)].puzzle,
 			rank: 2,
 			prerank: 2,
 			difficulty: 7,
@@ -115,7 +115,7 @@ class Game extends React.Component {
     } else if (this.state.win===false&&this.state.message===1){
       return (<h3>nope, keep trying</h3>);
 		}else {
-      return (<h3>CONGRATULATIONS SUDOKU MASTER!</h3>);  
+      return (<h3>SUDOKU WINNER!</h3>);  
     }
   }
 
@@ -187,35 +187,34 @@ class Game extends React.Component {
   }
 
   render() {
-		const welcome = 'Welcome to Sudoku!';
-	  const rankDiff = '*rank='+this.state.prerank+' *difficulty='+this.state.predifficulty;
+		const welcome = 'Sudoku Sunshine';
 
     return (
       <div>
 				<center>
-			<div className="status"><h1>{welcome}</h1><h3>{rankDiff}</h3></div>
-			          <div className="gamestatus">{this.gamestatus()}</div>
-
-
-					<div>
-						<div className="rank" onClick={() => this.setRank()}><h3>set rank</h3></div>
-			      <div className="difficulty" onClick={() => this.setDiff()}><h3>set difficulty</h3></div>
-						<div className="loadpuzzles" onClick={() => this.load()}><h3>load</h3></div>
-			</div>
-			<div>
-            <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
-            <div className="check" onClick={() => this.gamecheck()}><h3>check</h3></div>
-					</div>
-			
+				<div>			
         <div className="game">
-          <Board
+			<Board
 						rank={this.state.rank}
 						difficulty={this.state.difficulty}
             squares={this.state.squares}
             red={this.state.red}
             gamestatus={() => this.gamestatus()}
             onClick={(i) => this.handleClick(i)}/>
-        </div>
+<div>
+<div className="status"><h1>{welcome}</h1></div>
+			          <div className="gamestatus">{this.gamestatus()}</div>
+
+
+            <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
+						<div className="rank" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
+			      <div className="difficulty" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
+						<div className="loadpuzzles" onClick={() => this.load()}><h3>load settings</h3></div>
+            <div className="check" onClick={() => this.gamecheck()}><h3>check</h3></div>
+					</div>
+			</div>
+			</div>
+
 			</center>
       </div>
     );
