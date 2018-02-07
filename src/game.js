@@ -33,7 +33,7 @@ class Game extends React.Component {
 
 	setDiff(){
 		var predifficulty = this.state.predifficulty
-		this.setState({predifficulty: (predifficulty%10)+1})
+		this.setState({predifficulty: (predifficulty%8)+1})
 	}
 
 	load(){
