@@ -1,12 +1,18 @@
 body {
-	font-family: 'Erica One', cursive;
+	font-family: 'Erica One';
   margin: 20px;
   background-color: #87CEEB;
 	color: #FEFDE3;
 	text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
 }
 
-.game {
+.dashboard {
+	float: left;
+	display: inline-block;
+}
+
+.gamePad {
+	width: 490px;
 	display: inline-block;
 }
 
@@ -17,7 +23,7 @@ body {
 }
 
 .status {
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .square {
@@ -28,12 +34,12 @@ body {
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 60px;
+  height: 48px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 10px;
   text-align: center;
-  width: 60px;
+  width: 48px;
 }
 
 
@@ -44,12 +50,12 @@ body {
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 60px;
+  height: 48px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 10px;
   text-align: center;
-  width: 60px;
+  width: 48px;
 }
 
 
@@ -64,48 +70,27 @@ body {
 
 
 .game {
-  display: flex;
-  flex-direction: row;
+	float: center;
 }
 
 .rank {
-  background-color: #FEFDE3;
-  border-radius: 47%;
-  padding: 1px 12px;
-	color: grey;
-  border: 2px solid #87CEEB;
+	text-align: left;
 }
 
 .difficulty {
-  background-color: #FEFDE3;
-  border-radius: 47%;
-  padding: 1px 12px;
-  border: 2px solid #FEFDE3;
-	color: grey;
-	border: 2px solid #87CEEB;
+	text-align: left;
 }
 
 .loadpuzzles {
-  background-color: #FEFDE3;
-  border-radius: 47%;
-  padding: 1px 12px;
-	color: grey;
-  border: 2px solid #87CEEB;
+	text-align: left;
 }
 
 
 .start {
-  background-color: #FEFDE3;
-  border-radius: 47%;
-  padding: 1px 12px;
-	color: grey;
-  border: 2px solid #87CEEB; 
+	text-align: left;
 }
 
 .check {
-  background-color: #FEFDE3;
-  border-radius: 47%;
-	color: grey;
-  border: 2px solid #87CEEB;
+	text-align: left;
 }
 
