@@ -10,8 +10,8 @@ class Game extends React.Component {
 			prepuzzle: this.props.puzzles[Math.floor(Math.random()*30)].puzzle,
 			rank: 2,
 			prerank: 2,
-			difficulty: 7,
-			predifficulty: 7,
+			difficulty: 5,
+			predifficulty: 5,
       squares: Array(16).fill(null),  
       red: Array(16).fill(null),
       win: false,
@@ -33,7 +33,7 @@ class Game extends React.Component {
 
 	setDiff(){
 		var predifficulty = this.state.predifficulty
-		this.setState({predifficulty: (predifficulty%8)+1})
+		this.setState({predifficulty: (predifficulty%6)+1})
 	}
 
 	load(){
