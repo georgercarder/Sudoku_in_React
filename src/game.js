@@ -7,11 +7,11 @@ class Game extends React.Component {
   constructor(props){
     super(props);
     this.state={
-			prepuzzle: this.props.puzzles[Math.floor(Math.random()*30)].puzzle,
-			rank: 2,
-			prerank: 2,
-			difficulty: 5,
-			predifficulty: 5,
+      prepuzzle: this.props.puzzles[Math.floor(Math.random()*30)].puzzle,
+      rank: 2,
+      prerank: 2,
+      difficulty: 5,
+      predifficulty: 5,
       squares: Array(16).fill(null),  
       red: Array(16).fill(null),
       win: false,
@@ -19,50 +19,50 @@ class Game extends React.Component {
       message: null,
       startorclear: 'start',
       started: 0,
-			puzzles: this.props.puzzles,
+      puzzles: this.props.puzzles,
     };
   }
 
   setRank(){
-		if(this.state.prerank===2){
-		  this.setState({prerank: 3})	
-		} else {
-			this.setState({prerank: 2})	
-		}
-	}
+    if(this.state.prerank===2){
+      this.setState({prerank: 3})  
+    } else {
+      this.setState({prerank: 2})  
+    }
+  }
 
-	setDiff(){
-		var predifficulty = this.state.predifficulty
-		this.setState({predifficulty: (predifficulty%6)+1})
-	}
+  setDiff(){
+    var predifficulty = this.state.predifficulty
+    this.setState({predifficulty: (predifficulty%6)+1})
+  }
 
-	load(){
-		this.findPuzzle(this.state.prerank,this.state.predifficulty);
-		this.setState({
-			rank: this.state.prerank, 
-			difficulty: this.state.predifficulty,
-			squares: Array(this.state.prerank**4).fill(null),
-			red: Array(this.state.prerank**4).fill(null),
-			win: false,
-			message: null,
-			startorclear: 'start',
-			started: 0,
-			})
-			setTimeout(function() {this.start()}.bind(this),1)
-	}
+  load(){
+    this.findPuzzle(this.state.prerank,this.state.predifficulty);
+    this.setState({
+      rank: this.state.prerank, 
+      difficulty: this.state.predifficulty,
+      squares: Array(this.state.prerank**4).fill(null),
+      red: Array(this.state.prerank**4).fill(null),
+      win: false,
+      message: null,
+      startorclear: 'start',
+      started: 0,
+      })
+      setTimeout(function() {this.start()}.bind(this),1)
+  }
 
-	findPuzzle(rank,diff){
-		var l = this.state.puzzles.length
-		var found = false
-		var r = 0
-		while(found === false){
-			r = Math.floor(Math.random()*l)
-			if(this.state.puzzles[r].rank===rank && this.state.puzzles[r].difficulty===diff){
-				this.setState({prepuzzle: this.state.puzzles[r].puzzle.slice()})
-				found = true
-			}
-		}
-	}
+  findPuzzle(rank,diff){
+    var l = this.state.puzzles.length
+    var found = false
+    var r = 0
+    while(found === false){
+      r = Math.floor(Math.random()*l)
+      if(this.state.puzzles[r].rank===rank && this.state.puzzles[r].difficulty===diff){
+        this.setState({prepuzzle: this.state.puzzles[r].puzzle.slice()})
+        found = true
+      }
+    }
+  }
 
   startorclear(){
     if(this.state.startorclear==='start'){
@@ -76,21 +76,21 @@ class Game extends React.Component {
     if(this.state.startorclear==='start'){
       const red=this.state.red.slice()
       const squares= this.state.squares.slice();
-			var puzzle=this.state.prepuzzle;
-				/*[1,4,0,0,0,0,0,0,3,0,1,0,0,0,2,0]*/
-	
-			for(var i=0;i<this.state.rank**4;i++){
-				if(puzzle[i]!==0){
-					squares[i]=puzzle[i]
-					red[i]=puzzle[i]
-				}
-			}
+      var puzzle=this.state.prepuzzle;
+        /*[1,4,0,0,0,0,0,0,3,0,1,0,0,0,2,0]*/
+  
+      for(var i=0;i<this.state.rank**4;i++){
+        if(puzzle[i]!==0){
+          squares[i]=puzzle[i]
+          red[i]=puzzle[i]
+        }
+      }
 
       this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
     } else {
       this.setState({  
-				rank: 2, 
-				squares: Array(this.state.rank**4).fill(null),  
+        rank: 2, 
+        squares: Array(this.state.rank**4).fill(null),  
         red: Array(this.state.rank**4).fill(null),
         win: false,
         checking: 0,
@@ -114,7 +114,7 @@ class Game extends React.Component {
       return (<h3>game in progress</h3>);
     } else if (this.state.win===false&&this.state.message===1){
       return (<h3>nope, keep trying</h3>);
-		}else {
+    }else {
       return (<h3>SUDOKU WINNER!</h3>);  
     }
   }
@@ -123,23 +123,23 @@ class Game extends React.Component {
     this.setState({checking: 1})
     //this.state.squares
     var SQUARES=this.state.squares.slice()
-		var rank=this.state.rank
+    var rank=this.state.rank
     // ROWS COLUMNS BOXES
 
     var decision=true
-		// rows
-		let set = new Set()
-		for(var i=0;i<(rank**2);i++){
-			set.clear()
-			for(var j=0;j<=(rank**2);j++){
-				set.add(SQUARES[j+i*(rank**2)])
-			}
-			if(set.size<(rank**2)){
-				decision=false
-				break
-			}
-		}
-		// cols
+    // rows
+    let set = new Set()
+    for(var i=0;i<(rank**2);i++){
+      set.clear()
+      for(var j=0;j<=(rank**2);j++){
+        set.add(SQUARES[j+i*(rank**2)])
+      }
+      if(set.size<(rank**2)){
+        decision=false
+        break
+      }
+    }
+    // cols
     for(var j=0;j<(rank**2);j++){
       set.clear()
       for(var i=0;i<=(rank**2);i++){
@@ -151,67 +151,67 @@ class Game extends React.Component {
       }
    }
 
-		// boxes will be difficult...
-		var b = 0
-		let box = new Set()
-		while(b<rank**2){
-			for(var i=0;i<rank;i++){
-				for(var j=0;j<rank;j++){
-					box.clear()
-					for(var ii=rank*i;ii<rank*(i+1);ii++){
-						for(var jj=rank*j;jj<rank*(j+1);jj++){
-							box.add(SQUARES[jj+(rank**2)*ii])
-							b=b+1
-						}
-					}
-					if(box.size<(rank**2)){
-						decision=false
-						break
-					}
-				}
-			if(decision===false){
-				break
-			}
-			}
-			if(decision===false){
-				break
-			}
-		}
+    // boxes will be difficult...
+    var b = 0
+    let box = new Set()
+    while(b<rank**2){
+      for(var i=0;i<rank;i++){
+        for(var j=0;j<rank;j++){
+          box.clear()
+          for(var ii=rank*i;ii<rank*(i+1);ii++){
+            for(var jj=rank*j;jj<rank*(j+1);jj++){
+              box.add(SQUARES[jj+(rank**2)*ii])
+              b=b+1
+            }
+          }
+          if(box.size<(rank**2)){
+            decision=false
+            break
+          }
+        }
+      if(decision===false){
+        break
+      }
+      }
+      if(decision===false){
+        break
+      }
+    }
 
     if( decision===true ){
       this.setState({win: true, red: this.state.squares});  
     } else {
-			this.setState({win: false, message:1});
-			setTimeout(function() {this.setState({message: 2})}.bind(this),1200)
+      this.setState({win: false, message:1});
+      setTimeout(function() {this.setState({message: 2})}.bind(this),1200)
     }
   }
 
   render() {
-		const welcome = 'Sudoku Sunshine';
+    const welcome = 'Sudoku Sunshine';
 
     return (
       <div>
-				<div className="dashboard">
-					<div className="status"><h1>{welcome}</h1>
-			      {this.gamestatus()}</div>
+        <div className="dashboard">
+          <div className="status"><h1>{welcome}</h1>
+            {this.gamestatus()}</div>
           <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
-					<div className="rank" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
-		      <div className="difficulty" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
-					<div className="loadpuzzles" onClick={() => this.load()}><h3>load settings</h3></div>
+          <div className="rank" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
+          <div className="difficulty" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
+          <div className="loadpuzzles" onClick={() => this.load()}><h3>load settings</h3></div>
           <div className="check" onClick={() => this.gamecheck()}><h3>check</h3></div>
-				</div>
-				<div className="gamePad">
-					<div className="game">
-					<Board
-						rank={this.state.rank}
-						difficulty={this.state.difficulty}
+        </div>
+        <div className="gamePad">
+          <div className="game">
+          <Board
+            rank={this.state.rank}
+            difficulty={this.state.difficulty}
             squares={this.state.squares}
             red={this.state.red}
             gamestatus={() => this.gamestatus()}
             onClick={(i) => this.handleClick(i)}/>
-					</div>
-				</div>
-			</div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

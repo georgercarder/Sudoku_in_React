@@ -1,19 +1,19 @@
 body {
-	font-family: 'Erica One';
+  font-family: 'Erica One';
   margin: 20px;
   background-color: #87CEEB;
-	color: #FEFDE3;
-	text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+  color: #FEFDE3;
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
 }
 
 .dashboard {
-	float: left;
-	display: inline-block;
+  float: left;
+  display: inline-block;
 }
 
 .gamePad {
-	width: 490px;
-	display: inline-block;
+  width: 490px;
+  display: inline-block;
 }
 
 .board-row:after {
@@ -28,9 +28,9 @@ body {
 
 .square {
   background: #fff;
-	color: #87CEEB;
+  color: #87CEEB;
   border: 1px solid #999;
-	float: left;
+  float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
@@ -46,7 +46,7 @@ body {
 .redsquare {
   background: #ffff80;
   border: 1px solid #999;
-	float: left;
+  float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
@@ -70,27 +70,27 @@ body {
 
 
 .game {
-	float: center;
+  float: center;
 }
 
 .rank {
-	text-align: left;
+  text-align: left;
 }
 
 .difficulty {
-	text-align: left;
+  text-align: left;
 }
 
 .loadpuzzles {
-	text-align: left;
+  text-align: left;
 }
 
 
 .start {
-	text-align: left;
+  text-align: left;
 }
 
 .check {
-	text-align: left;
+  text-align: left;
 }
 

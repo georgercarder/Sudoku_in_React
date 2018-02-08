@@ -9,25 +9,25 @@ class Site extends React.Component {
   constructor(props){
     super(props);
     this.state={
-			page: <Introd onload={this.handleFetch()} changepage={(i) => this.changepage(i)}/>,
-			puzzles: 'url(path to node)' 
+      page: <Introd onload={this.handleFetch()} changepage={(i) => this.changepage(i)}/>,
+      puzzles: 'url(path to node)' 
     };
   }
 
-	handleFetch(){
-		axios.get('http://georgercarder.com/fetch/').then((response) => this.setState({puzzles: response.data}))
-	}
+  handleFetch(){
+    axios.get('http://georgercarder.com/fetch/').then((response) => this.setState({puzzles: response.data}))
+  }
 
-	changepage(i){
-		if (i===1){
-			this.setState({page:  <Game puzzles={this.state.puzzles}/>})
-		}
-	}
+  changepage(i){
+    if (i===1){
+      this.setState({page:  <Game puzzles={this.state.puzzles}/>})
+    }
+  }
 
   render() {
     return (
       <body>
-				{this.state.page}
+        {this.state.page}
       </body>
     );
   }
