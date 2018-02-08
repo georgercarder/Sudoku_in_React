@@ -89,7 +89,6 @@ class Game extends React.Component {
       this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
     } else {
       this.setState({  
-        rank: 2, 
         squares: Array(this.state.rank**4).fill(null),  
         red: Array(this.state.rank**4).fill(null),
         win: false,
