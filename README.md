@@ -1,9 +1,11 @@
 # Sudoku in React v 0.2.0
 
 ## My first try building a project using React. I'm hooked!
+This repo consists of the front end to this project.
 
 
-Sudoku puzzles generated and stocked into a MongoDB by
+
+As for the back end, Sudoku puzzles generated and stocked into a MongoDB by
 python scripts in the following repos:
 
 [https://github.com/georgercarder/sudokugridgen](https://github.com/georgercarder/sudokugridgen)
