@@ -10,7 +10,6 @@ class Introd extends React.Component {
   }
 
   render() {
-
     return (
       <div onClick={() => this.props.changepage(1)}>
 				<center>

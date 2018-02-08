@@ -191,16 +191,16 @@ class Game extends React.Component {
 
     return (
       <div>
-					<div className="dashboard">
-						<div className="status"><h1>{welcome}</h1>
+				<div className="dashboard">
+					<div className="status"><h1>{welcome}</h1>
 			      {this.gamestatus()}</div>
-            <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
-						<div className="rank" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
-			      <div className="difficulty" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
-						<div className="loadpuzzles" onClick={() => this.load()}><h3>load settings</h3></div>
-            <div className="check" onClick={() => this.gamecheck()}><h3>check</h3></div>
-					</div>
-					<div className="gamePad">
+          <div className="start" onClick={() => this.start()}>{this.startorclear()}</div>
+					<div className="rank" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
+		      <div className="difficulty" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
+					<div className="loadpuzzles" onClick={() => this.load()}><h3>load settings</h3></div>
+          <div className="check" onClick={() => this.gamecheck()}><h3>check</h3></div>
+				</div>
+				<div className="gamePad">
 					<div className="game">
 					<Board
 						rank={this.state.rank}
@@ -210,7 +210,7 @@ class Game extends React.Component {
             gamestatus={() => this.gamestatus()}
             onClick={(i) => this.handleClick(i)}/>
 					</div>
-					</div>
+				</div>
 			</div>
     );
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import './index.css';
 import Game from './game';
 import Introd from './introd';
-import Fetchgames from './fetchgames';
 import axios from 'axios';
 
 class Site extends React.Component {
@@ -26,7 +25,6 @@ class Site extends React.Component {
 	}
 
   render() {
-
     return (
       <body>
 				{this.state.page}
