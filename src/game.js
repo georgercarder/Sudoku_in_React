@@ -41,9 +41,9 @@ class Game extends React.Component {
     this.setState({
       rank: this.state.prerank, 
       difficulty: this.state.predifficulty,
-      squares: Array(this.state.prerank**4).fill(null),
-      red: Array(this.state.prerank**4).fill(null),
-      win: false,
+      /*squares,red:Array(this.state.prerank**4).fill(null)*/
+      
+			win: false,
       message: null,
       startorclear: 'start',
       started: 0,
@@ -83,7 +83,10 @@ class Game extends React.Component {
         if(puzzle[i]!==0){
           squares[i]=puzzle[i]
           red[i]=puzzle[i]
-        }
+        } else {
+					squares[i]=null
+          red[i]=null
+				}
       }
 
       this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
