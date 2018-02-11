@@ -7,14 +7,27 @@ body {
 }
 
 .dashboard {
-  float: left;
-  display: inline-block;
+	background-color: #87CEEB;
+  text-align: center;	
 }
 
 .gamePad {
-  width: 490px;
+  width: 420px;
   display: inline-block;
+	background-color: #87CEEB;
+	margin: 0 4px;
 }
+
+.game {
+	  /* changes when rank changes in game.js */
+}
+
+.table {
+  padding: 20px;
+	margin: 0 auto;
+
+}
+
 
 .board-row:after {
   clear: both;
@@ -22,9 +35,23 @@ body {
   display: table;
 }
 
-.status {
-  margin-bottom: 40px;
+.welcome {
+	font-size: 140%;
+	background-color: #87CEEB;
+	text-align: center;
+  margin-bottom: 2px;
 }
+
+.status {
+	background-color: #87CEEB;
+	border: none;
+	color: #FEFDE3;
+	padding: 2px 2px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+}
+
 
 .square {
   background: #fff;
@@ -34,12 +61,12 @@ body {
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 48px;
+  height: 42px;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 10px;
+  padding: 4px;
   text-align: center;
-  width: 48px;
+  width: 42px;
 }
 
 
@@ -50,47 +77,38 @@ body {
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 48px;
+  height: 42px;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 10px;
+  padding: 4px;
   text-align: center;
-  width: 48px;
+  width: 42px;
 }
 
-
-.table {
-  padding: 20px;
-
-}
 
 .square:focus {
   outline: none;
 }
 
 
-.game {
-  float: center;
+.button {
+	background-color: #87CEEB;
+	border: 2px solid #FEFDE3;
+	margin: 1px;
+	color: #FEFDE3;
+	padding: 1px 8px;
+	text-align: center;
+	text-decoration: none;
+  display: inline-block;
+	font-size: 16px;
+	width: 120px;
+	-webkit-transition-duration: 0.1s /*Safari*/;
+	transition-duration: 0.1s;
 }
 
-.rank {
-  text-align: left;
+.button:hover {
+	background-color: #3BB9FF;
+	color: #FEFDE3;
 }
 
-.difficulty {
-  text-align: left;
-}
-
-.loadpuzzles {
-  text-align: left;
-}
-
-
-.start {
-  text-align: left;
-}
-
-.check {
-  text-align: left;
-}
 
