@@ -8,14 +8,17 @@ body {
 
 .dashboard {
 	background-color: #87CEEB;
-  text-align: center;	
+  text-align: center;
+	width: 460px;
+	
 }
 
 .gamePad {
+	
   width: 420px;
   display: inline-block;
 	background-color: #87CEEB;
-	margin: 0 4px;
+	margin: 0 14px;
 }
 
 .game {
@@ -100,8 +103,8 @@ body {
 	text-align: center;
 	text-decoration: none;
   display: inline-block;
-	font-size: 16px;
-	width: 120px;
+	font-size: 14px;
+	width: 130px;
 	-webkit-transition-duration: 0.1s /*Safari*/;
 	transition-duration: 0.1s;
 }

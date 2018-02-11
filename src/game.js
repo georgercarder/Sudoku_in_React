@@ -20,7 +20,7 @@ class Game extends React.Component {
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
-			boardmargin: '0px 107px',
+			boardmargin: '0px 108px',
     };
   }
 
@@ -40,7 +40,7 @@ class Game extends React.Component {
   load(){
     this.findPuzzle(this.state.prerank,this.state.predifficulty);
 		if(this.state.prerank===2){
-			this.setState({boardmargin: '0px 107px'})} else {this.setState({boardmargin: '0px 3px'})}
+			this.setState({boardmargin: '0px 108px'})} else {this.setState({boardmargin: '0px 110px'})}
     this.setState({
       rank: this.state.prerank, 
       difficulty: this.state.predifficulty,
@@ -202,8 +202,6 @@ class Game extends React.Component {
           <div className="button" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
           <div className="button" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
           <div className="button" onClick={() => this.load()}><h3>load settings</h3></div>
-			</div>
-			<div className="dashboard">
       <div className="button" onClick={() => this.start()}>{this.startorclear()}</div>
 			<div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
         </div>
