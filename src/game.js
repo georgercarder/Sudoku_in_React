@@ -20,7 +20,6 @@ class Game extends React.Component {
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
-			boardmargin: '0px 108px',
     };
   }
 
@@ -39,8 +38,6 @@ class Game extends React.Component {
 
   load(){
     this.findPuzzle(this.state.prerank,this.state.predifficulty);
-		if(this.state.prerank===2){
-			this.setState({boardmargin: '0px 108px'})} else {this.setState({boardmargin: '0px 110px'})}
     this.setState({
       rank: this.state.prerank, 
       difficulty: this.state.predifficulty,
@@ -208,7 +205,7 @@ class Game extends React.Component {
  <div className="status">{this.gamestatus()}</div>
 
         <div className="gamePad">
-          <div className="game" style={{"margin":this.state.boardmargin}}>
+          <div className="game" >
           <Board
             rank={this.state.rank}
             difficulty={this.state.difficulty}
