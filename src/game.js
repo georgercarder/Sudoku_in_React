@@ -202,8 +202,7 @@ class Game extends React.Component {
       <div className="button" onClick={() => this.start()}>{this.startorclear()}</div>
 			<div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
         </div>
- <div className="status">{this.gamestatus()}</div>
-
+				<div className="status">{this.gamestatus()}</div>
         <div className="gamePad">
           <div className="game" >
           <Board
