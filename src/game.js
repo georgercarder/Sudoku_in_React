@@ -43,7 +43,7 @@ class Game extends React.Component {
       difficulty: this.state.predifficulty,
       /*squares,red:Array(this.state.prerank**4).fill(null)*/
       
-			win: false,
+      win: false,
       message: null,
       startorclear: 'start',
       started: 0,
@@ -84,9 +84,9 @@ class Game extends React.Component {
           squares[i]=puzzle[i]
           red[i]=puzzle[i]
         } else {
-					squares[i]=null
+          squares[i]=null
           red[i]=null
-				}
+        }
       }
 
       this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
@@ -193,16 +193,16 @@ class Game extends React.Component {
 
     return (
       <div>
-			<div className="welcome"><h1>{welcome}</h1></div>
+      <div className="welcome"><h1>{welcome}</h1></div>
 
         <div className="dashboard">
           <div className="button" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
           <div className="button" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
           <div className="button" onClick={() => this.load()}><h3>load settings</h3></div>
       <div className="button" onClick={() => this.start()}>{this.startorclear()}</div>
-			<div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
+      <div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
         </div>
-				<div className="status">{this.gamestatus()}</div>
+        <div className="status">{this.gamestatus()}</div>
         <div className="gamePad">
           <div className="game" >
           <Board
