@@ -199,8 +199,8 @@ class Game extends React.Component {
           <div className="button" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
           <div className="button" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
           <div className="button" onClick={() => this.load()}><h3>load settings</h3></div>
-					<div className="button" onClick={() => this.start()}>{this.startorclear()}</div>
-					<div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
+          <div className="button" onClick={() => this.start()}>{this.startorclear()}</div>
+          <div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
         </div>
         <div className="status">{this.gamestatus()}</div>
         <div className="gamePad">
