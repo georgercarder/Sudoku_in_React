@@ -1,7 +1,6 @@
 # Sudoku in React v 0.2.0
 
-## My first try building a project using React. I'm hooked!
-This repo consists of the front end to this project.
+##This repo consists of the front end to this project.
 
 
 
