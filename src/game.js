@@ -15,8 +15,8 @@ class Game extends React.Component {
       squares: Array(16).fill(null),  
       red: Array(16).fill(null),
       win: false,
-      checking: 0,
       message: null,
+			status: <h3>push 'start' to start game</h3>,
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
@@ -89,7 +89,7 @@ class Game extends React.Component {
         }
       }
 
-      this.setState({squares: squares, red: red, started: 1, startorclear: "clear",});
+      this.setState({squares: squares, red: red, started: 1, startorclear: "clear",}, () => this.changeStatus());
     } else {
       this.setState({  
         squares: Array(this.state.rank**4).fill(null),  
@@ -99,7 +99,7 @@ class Game extends React.Component {
         message: null,
         startorclear: 'start',
         started: 0,
-      });
+      }, () => this.changeStatus());
     }
   }
 
@@ -109,20 +109,19 @@ class Game extends React.Component {
     this.setState({squares: squares});
   }
   
-  gamestatus(){
+  changeStatus(){
     if(this.state.started!==1){
-      return (<h3>Push 'start' to start game</h3>)  
+      this.setState({status: <h3>Push 'start' to start game</h3>})  
     } else if (this.state.win===false&&this.state.message!==1){
-      return (<h3>game in progress</h3>);
+      this.setState({status: <h3>game in progress</h3>});
     } else if (this.state.win===false&&this.state.message===1){
-      return (<h3>nope, keep trying</h3>);
+      this.setState({status: <h3>nope, keep trying</h3>});
     }else {
-      return (<h3>SUDOKU WINNER!</h3>);  
+      this.setState({status: <h3>SUDOKU WINNER!</h3>});  
     }
   }
 
   gamecheck(){
-    this.setState({checking: 1})
     //this.state.squares
     var SQUARES=this.state.squares.slice()
     var rank=this.state.rank
@@ -181,10 +180,10 @@ class Game extends React.Component {
     }
 
     if( decision===true ){
-      this.setState({win: true, red: this.state.squares});  
+      this.setState({win: true, red: this.state.squares}, () => this.changeStatus());  
     } else {
-      this.setState({win: false, message:1});
-      setTimeout(function() {this.setState({message: 2})}.bind(this),1200)
+      this.setState({win: false, message:1}, () => this.changeStatus());
+      setTimeout(function() {this.setState({message: 2}, () => this.changeStatus())}.bind(this),1200)
     }
   }
 
@@ -196,13 +195,13 @@ class Game extends React.Component {
       <div className="welcome"><h1>{welcome}</h1></div>
 
         <div className="dashboard">
-          <div className="button" onClick={() => this.setRank()}><h3>set rank {this.state.prerank}</h3></div>
-          <div className="button" onClick={() => this.setDiff()}><h3>set difficulty {this.state.predifficulty}</h3></div>
-          <div className="button" onClick={() => this.load()}><h3>load settings</h3></div>
+          <div className="button" onClick={() => this.setRank()}><h3>rank {this.state.prerank}</h3></div>
+          <div className="button" onClick={() => this.setDiff()}><h3>difficulty {this.state.predifficulty}</h3></div>
+          <div className="button" onClick={() => this.load()}><h3>select</h3></div>
           <div className="button" onClick={() => this.start()}>{this.startorclear()}</div>
           <div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
         </div>
-        <div className="status">{this.gamestatus()}</div>
+        <div className="status">{this.state.status}</div>
         <div className="gamePad">
           <div className="game" >
           <Board
