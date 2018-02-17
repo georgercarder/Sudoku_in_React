@@ -16,7 +16,7 @@ class Game extends React.Component {
       red: Array(16).fill(null),
       win: false,
       message: null,
-			status: <h3>push 'start' to start game</h3>,
+      status: <h3>push 'start' to start game</h3>,
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
@@ -89,7 +89,12 @@ class Game extends React.Component {
         }
       }
 
-      this.setState({squares: squares, red: red, started: 1, startorclear: "clear",}, () => this.changeStatus());
+      this.setState({
+        squares: squares, 
+        red: red, 
+        started: 1, 
+        startorclear: "clear",
+      }, () => this.changeStatus());
     } else {
       this.setState({  
         squares: Array(this.state.rank**4).fill(null),  
@@ -180,9 +185,15 @@ class Game extends React.Component {
     }
 
     if( decision===true ){
-      this.setState({win: true, red: this.state.squares}, () => this.changeStatus());  
+      this.setState({
+        win: true, 
+        red: this.state.squares
+      }, () => this.changeStatus());  
     } else {
-      this.setState({win: false, message:1}, () => this.changeStatus());
+      this.setState({
+        win: false, 
+        message:1
+      }, () => this.changeStatus());
       setTimeout(function() {this.setState({message: 2}, () => this.changeStatus())}.bind(this),1200)
     }
   }
@@ -192,25 +203,40 @@ class Game extends React.Component {
 
     return (
       <div>
-      <div className="welcome"><h1>{welcome}</h1></div>
+        <div className="welcome">
+          <h1>{welcome}</h1>
+        </div>
 
         <div className="dashboard">
-          <div className="button" onClick={() => this.setRank()}><h3>rank {this.state.prerank}</h3></div>
-          <div className="button" onClick={() => this.setDiff()}><h3>difficulty {this.state.predifficulty}</h3></div>
-          <div className="button" onClick={() => this.load()}><h3>select</h3></div>
-          <div className="button" onClick={() => this.start()}>{this.startorclear()}</div>
-          <div className="button" onClick={() => this.gamecheck()}><h3>check</h3></div>
+          <div className="button" onClick={() => this.setRank()}>
+            <h3>rank {this.state.prerank}</h3>
+          </div>
+          <div className="button" onClick={() => this.setDiff()}>
+            <h3>difficulty {this.state.predifficulty}</h3>
+          </div>
+          <div className="button" onClick={() => this.load()}>
+            <h3>select</h3>
+          </div>
+          <div className="button" onClick={() => this.start()}>
+            {this.startorclear()}
+          </div>
+          <div className="button" onClick={() => this.gamecheck()}>
+            <h3>check</h3>
+          </div>
         </div>
-        <div className="status">{this.state.status}</div>
+        <div className="status">
+          {this.state.status}
+        </div>
         <div className="gamePad">
           <div className="game" >
-          <Board
-            rank={this.state.rank}
-            difficulty={this.state.difficulty}
-            squares={this.state.squares}
-            red={this.state.red}
-            gamestatus={() => this.gamestatus()}
-            onClick={(i) => this.handleClick(i)}/>
+            <Board
+              rank={this.state.rank}
+              difficulty={this.state.difficulty}
+              squares={this.state.squares}
+              red={this.state.red}
+              gamestatus={() => this.gamestatus()}
+              onClick={(i) => this.handleClick(i)}
+            />
           </div>
         </div>
       </div>

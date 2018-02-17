@@ -7,27 +7,27 @@ body {
 }
 
 .dashboard {
-	padding: 4px;
-	background-color: #87CEEB;
+  padding: 4px;
+  background-color: #87CEEB;
   text-align: center;
-	width: 100%;
-	
+  width: 100%;
+  
 }
 
 .gamePad {
-	width: 100%;
-	display: inline-block;
-	background-color: #87CEEB;
-	margin: 0 0;
+  width: 100%;
+  display: inline-block;
+  background-color: #87CEEB;
+  margin: 0 0;
 }
 
 .game {
-	  /* changes when rank changes in game.js */
+    /* changes when rank changes in game.js */
 }
 
 .table {
   padding: 20px;
-	margin: 0 auto;
+  margin: 0 auto;
 
 }
 
@@ -39,18 +39,18 @@ body {
 }
 
 .welcome {
-	padding: 4px;
-	font-size: 140%;
-	background-color: #87CEEB;
+  padding: 4px;
+  font-size: 140%;
+  background-color: #87CEEB;
 }
 
 .status {
-	background-color: #87CEEB;
-	border: none;
-	color: #FEFDE3;
-	padding: 4px 4px;
-	text-decoration: none;
-	font-size: 16px;
+  background-color: #87CEEB;
+  border: none;
+  color: #FEFDE3;
+  padding: 4px 4px;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 
@@ -93,23 +93,23 @@ body {
 
 
 .button {
-	background-color: #87CEEB;
-	border: 2px solid #FEFDE3;
-	margin: 1px;
-	color: #FEFDE3;
-	padding: 1px 8px;
-	text-align: center;
-	text-decoration: none;
+  background-color: #87CEEB;
+  border: 2px solid #FEFDE3;
+  margin: 1px;
+  color: #FEFDE3;
+  padding: 1px 8px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-	font-size: 14px;
-	width: 130px;
-	-webkit-transition-duration: 0.1s /*Safari*/;
-	transition-duration: 0.1s;
+  font-size: 14px;
+  width: 130px;
+  -webkit-transition-duration: 0.1s /*Safari*/;
+  transition-duration: 0.1s;
 }
 
 .button:hover {
-	background-color: #3BB9FF;
-	color: #FEFDE3;
+  background-color: #3BB9FF;
+  color: #FEFDE3;
 }
 
 
