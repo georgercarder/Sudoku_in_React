@@ -18,7 +18,8 @@ body {
 
 .gamePad {
   width: 100%;
-  display: inline-block;
+  display: inline-flex;
+	justify-content: center;
   background-color: #87CEEB;
 }
 
@@ -40,7 +41,7 @@ body {
 
 .welcome {
   position: relative;
-  background-color: #4CAF50;
+  background-color: #87CEEB;
   font-size: 8px;
 	font-size: 0.8rem;
   color: #FFFFFF;
@@ -121,7 +122,7 @@ body {
 
 .button {
   position: relative;
-  background-color: #4CAF50;
+  background-color: #87CEEB;
   font-size: 7px;
 	font-size: 0.7rem;
   color: #FFFFFF;

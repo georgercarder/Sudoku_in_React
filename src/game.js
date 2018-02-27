@@ -222,7 +222,7 @@ class Game extends React.Component {
       <div>
 			<div className="dashboard">
 			<div className="welcome">
-          <h1>{welcome}</h1>
+          <h3>{welcome}</h3>
 			</div>
           <div className="button" onClick={() => this.start()}>
             {this.startorclear()}
