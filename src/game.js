@@ -20,7 +20,7 @@ class Game extends React.Component {
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
-			menu: 0,
+      menu: 0,
     };
   }
 
@@ -199,26 +199,26 @@ class Game extends React.Component {
     }
   }
 
-	dropDownMenu() {
-		if(this.state.menu === 0){
-		this.setState({
-			menu: 1 
-		})} else {
-		this.setState({menu: 0})
-		}
+  dropDownMenu() {
+    if(this.state.menu === 0){
+    this.setState({
+      menu: 1 
+    })} else {
+    this.setState({menu: 0})
+    }
 
-	}
+  }
 
   render() {
     const welcome = <h3>  > Sudoku Sunshine</h3>;
 
     return (
       <div>
-			<div className="dashboard">
-<div className="status">
-					{welcome}
-          {this.state.status}
-        </div>
+        <div className="dashboard">
+          <div className="status">
+            {welcome}
+            {this.state.status}
+          </div>
 
           <div className="button" onClick={() => this.start()}>
             {this.startorclear()}
@@ -226,35 +226,38 @@ class Game extends React.Component {
           <div className="button" onClick={() => this.gamecheck()}>
             <h3>check</h3>
           </div>
-			<div>
+          <div>
             <div className="menuButton" onClick={() => this.dropDownMenu()}>
-							<h3>menu</h3>
-						</div> 
-		<div className="menu" style={{"opacity":this.state.menu}}>
-
-            <div className="menuItem" onClick={() => this.setRank()}><h3>rank {this.state.prerank}</h3></div> 
-            <div className="menuItem" onClick={() => this.setDiff()}><h3>difficulty {this.state.predifficulty}</h3></div>  
-            <div className="menuItem" onClick={() => this.load()}><h3>select</h3></div> 
-			</div>
-			</div>
-	
-
-			</div>
-        <div className="gamePad">
-          <div className="game" >
-            <Board
-              rank={this.state.rank}
-              difficulty={this.state.difficulty}
-              squares={this.state.squares}
-              red={this.state.red}
-              gamestatus={() => this.gamestatus()}
-              onClick={(i) => this.handleClick(i)}
-            />
+              <h3>menu</h3>
+            </div> 
+            <div className="menu" style={{"opacity":this.state.menu}}>
+            <div className="menuItem" onClick={() => this.setRank()}>
+              <h3>rank {this.state.prerank}</h3>
+            </div> 
+            <div className="menuItem" onClick={() => this.setDiff()}>
+              <h3>difficulty {this.state.predifficulty}</h3>
+            </div>  
+            <div className="menuItem" onClick={() => this.load()}>
+              <h3>select</h3>
+            </div> 
           </div>
         </div>
       </div>
-    );
-  }
+      <div className="gamePad">
+        <div className="game" >
+          <Board
+            rank={this.state.rank}
+            difficulty={this.state.difficulty}
+            squares={this.state.squares}
+            red={this.state.red}
+            gamestatus={() => this.gamestatus()}
+            onClick={(i) => this.handleClick(i)}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
 }
 
 export default Game;

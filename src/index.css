@@ -6,33 +6,30 @@ body {
 }
 
 .dashboard {
-	display: inline-flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-/*  background-color: #87CEEB;*/
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /*  background-color: #87CEEB;*/
   text-align: center;
   width: 100%;
-	z-index: 1;
-  
+  z-index: 1;
 }
 
 .gamePad {
   width: 100%;
   display: inline-flex;
-	justify-content: center;
+  justify-content: center;
   background-color: #87CEEB;
 }
 
 .game {
-/* changes when rank changes in game.js */
+  /* changes when rank changes in game.js */
 }
 
 .table {
   padding: 20px;
-
 }
-
 
 .board-row:after {
   clear: both;
@@ -44,41 +41,36 @@ body {
   position: relative;
   background-color: #87CEEB;
   font-size: 9px;
-	font-size: 0.9rem;
+  font-size: 0.9rem;
   color: #FFFFFF;
   width: 200px;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
-/*  transition-duration: 0.4s;
+  /*  transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-	  text-shadow: 0px 0px 8px rgba(255,255,255,0.7);
-
-
+  text-shadow: 0px 0px 8px rgba(255,255,255,0.7);
 }*/
 
 .status {
- position: relative;
+  position: relative;
   background-color: #333333;
-	font-family: 'Ubuntu Mono';
+  font-family: 'Ubuntu Mono';
   border: 2px solid white;
-	padding: 4px;
+  padding: 4px;
   font-size: 7px;
-	font-size: 0.7rem;
+  font-size: 0.7rem;
   color: #FFFFFF;
   width: 80px;
-	width: 8rem;
-	text-align: left;
+  width: 8rem;
+  text-align: left;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-
-
 }
-
 
 .square {
   background: #fff;
@@ -86,52 +78,49 @@ body {
   border: 1px solid #999;
   float: left;
   font-size: 20px;
-	font-size: 2rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 34px;
   height: 38px;
-	height: 3.8rem;
+  height: 3.8rem;
   margin-right: -1px;
   margin-top: -1px;
   padding: 4px;
   text-align: center;
   width: 38px;
-	width: 3.8rem;
+  width: 3.8rem;
 }
-
 
 .redsquare {
   background: #ffff80;
   border: 1px solid #999;
   float: left;
   font-size: 20px;
-	font-size: 2rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 34px;
   height: 38px;
-	height: 3.8rem;
+  height: 3.8rem;
   margin-right: -1px;
   margin-top: -1px;
   padding: 4px;
   text-align: center;
   width: 38px;
-	width: 3.8rem;
+  width: 3.8rem;
 }
-
 
 .square:focus {
   outline: none;
 }
 
-
 .button {
   position: relative;
   background-color: #87CEEB;
   font-size: 7px;
-	font-size: 0.7rem;
+  font-size: 0.7rem;
   color: #FFFFFF;
   width: 60px;
-	width: 6rem;
+  width: 6rem;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -170,10 +159,10 @@ body {
   position: relative;
   background-color: #87CEEB;
   font-size: 7px;
-	font-size: 0.7rem;
+  font-size: 0.7rem;
   color: #FFFFFF;
   width: 60px;
-	width: 6rem;
+  width: 6rem;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -207,31 +196,28 @@ body {
   color: #FEFDE3;
 }
 
-
 .menu {
-	position: absolute;
-	list-style-type: none;
-	z-index: 1;
+  position: absolute;
+  list-style-type: none;
+  z-index: 1;
 }
 
 .menuItem {
-	text-align: center;
+  text-align: center;
  background-color: #3BB9FF;
   font-size: 7px;
-	font-size: 0.7rem;
+  font-size: 0.7rem;
   color: #FFFFFF;
   width: 60px;
-	width: 6rem;
+  width: 6rem;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-
 }
 
-
 .menuItem:hover {
-	background-color: #87CEEB;
+  background-color: #87CEEB;
 }
