@@ -42,8 +42,8 @@ body {
 .welcome {
   position: relative;
   background-color: #87CEEB;
-  font-size: 8px;
-	font-size: 0.8rem;
+  font-size: 9px;
+	font-size: 0.9rem;
   color: #FFFFFF;
   width: 200px;
   text-align: center;
@@ -52,6 +52,8 @@ body {
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
+	  text-shadow: 0px 0px 8px rgba(255,255,255,0.7);
+
 
 }
 
@@ -64,7 +66,8 @@ body {
   font-size: 7px;
 	font-size: 0.7rem;
   color: #FFFFFF;
-  width: 200px;
+  width: 80px;
+	width: 8rem;
 	text-align: left;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -126,8 +129,8 @@ body {
   font-size: 7px;
 	font-size: 0.7rem;
   color: #FFFFFF;
-  width: 100px;
-	width: 10rem;
+  width: 60px;
+	width: 6rem;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
