@@ -38,6 +38,7 @@ class Game extends React.Component {
   }
 
   load(){
+		this.dropDownMenu()
     this.findPuzzle(this.state.prerank,this.state.predifficulty);
     this.setState({
       rank: this.state.prerank, 
