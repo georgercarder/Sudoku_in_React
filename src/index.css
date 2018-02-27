@@ -40,7 +40,7 @@ body {
   display: table;
 }
 
-.welcome {
+/*.welcome {
   position: relative;
   background-color: #87CEEB;
   font-size: 9px;
@@ -49,14 +49,14 @@ body {
   width: 200px;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+/*  transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
 	  text-shadow: 0px 0px 8px rgba(255,255,255,0.7);
 
 
-}
+}*/
 
 .status {
  position: relative;
@@ -165,7 +165,8 @@ body {
   color: #FEFDE3;
 }
 
-.buttonMenu {
+
+.menuButton {
   position: relative;
   background-color: #87CEEB;
   font-size: 7px;
@@ -181,10 +182,56 @@ body {
   cursor: pointer;
 }
 
-.menu {
-	z-index: 1;
-	position: relative;
+.menuButton:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
 }
+
+.menuButton:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.menuButton:hover {
+  background-color: #3BB9FF;
+  color: #FEFDE3;
+}
+
+
+.menu {
+	position: absolute;
+	list-style-type: none;
+	z-index: 1;
+}
+
 .menuItem {
-	display: block;
+	text-align: center;
+ background-color: #3BB9FF;
+  font-size: 7px;
+	font-size: 0.7rem;
+  color: #FFFFFF;
+  width: 60px;
+	width: 6rem;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+
+
+.menuItem:hover {
+	background-color: #87CEEB;
 }

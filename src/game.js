@@ -20,7 +20,7 @@ class Game extends React.Component {
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
-			menu: null,
+			menu: 0,
     };
   }
 
@@ -200,42 +200,45 @@ class Game extends React.Component {
   }
 
 	dropDownMenu() {
-		if(this.state.menu === null){
+		if(this.state.menu === 0){
 		this.setState({
-			menu:
-		<div className="menu">
-            <a className="menuItem" onClick={() => this.setRank()}>*rank {this.state.prerank}</a> 
-            <a className="menuItem" onClick={() => this.setDiff()}>*difficulty {this.state.predifficulty}</a>  
-            <a className="menuItem" onClick={() => this.load()}>*select</a> 
-			</div>
+			menu: 1 
 		})} else {
-		this.setState({menu: null})
+		this.setState({menu: 0})
 		}
 
 	}
 
   render() {
-    const welcome = 'Sudoku Sunshine';
+    const welcome = <h3>  > Sudoku Sunshine</h3>;
 
     return (
       <div>
 			<div className="dashboard">
-			<div className="welcome">
-          <h3>{welcome}</h3>
-			</div>
+<div className="status">
+					{welcome}
+          {this.state.status}
+        </div>
+
           <div className="button" onClick={() => this.start()}>
             {this.startorclear()}
           </div>
           <div className="button" onClick={() => this.gamecheck()}>
             <h3>check</h3>
           </div>
-					   <div className="button" onClick={() => this.setRank()}><h3>rank {this.state.prerank}</h3></div> 
-            <div className="button" onClick={() => this.setDiff()}><h3>level {this.state.predifficulty}</h3></div>  
-            <div className="button" onClick={() => this.load()}><h3>select</h3></div> 
+			<div>
+            <div className="menuButton" onClick={() => this.dropDownMenu()}>
+							<h3>menu</h3>
+						</div> 
+		<div className="menu" style={{"opacity":this.state.menu}}>
 
-        <div className="status">
-          {this.state.status}
-        </div>
+            <div className="menuItem" onClick={() => this.setRank()}><h3>rank {this.state.prerank}</h3></div> 
+            <div className="menuItem" onClick={() => this.setDiff()}><h3>difficulty {this.state.predifficulty}</h3></div>  
+            <div className="menuItem" onClick={() => this.load()}><h3>select</h3></div> 
+			</div>
+			</div>
+	
+
 			</div>
         <div className="gamePad">
           <div className="game" >
