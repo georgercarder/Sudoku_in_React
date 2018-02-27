@@ -20,6 +20,7 @@ class Game extends React.Component {
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
+			menu: null,
     };
   }
 
@@ -198,20 +199,18 @@ class Game extends React.Component {
     }
   }
 
-	menuPress() {
-		return (	
-		<div>
-			<div className="button" onClick={() => this.setRank()}>
-            <h3>*rank {this.state.prerank}</h3> 
-          </div>
-          <div className="button" onClick={() => this.setDiff()}>
-            <h3>*difficulty {this.state.predifficulty}</h3>  
-          </div>
-          <div className="button" onClick={() => this.load()}>
-            <h3>*select</h3> 
-          </div>
+	dropDownMenu() {
+		if(this.state.menu === null){
+		this.setState({
+			menu:
+		<div className="menu">
+            <a className="menuItem" onClick={() => this.setRank()}>*rank {this.state.prerank}</a> 
+            <a className="menuItem" onClick={() => this.setDiff()}>*difficulty {this.state.predifficulty}</a>  
+            <a className="menuItem" onClick={() => this.load()}>*select</a> 
 			</div>
-		)
+		})} else {
+		this.setState({menu: null})
+		}
 
 	}
 
@@ -230,9 +229,9 @@ class Game extends React.Component {
           <div className="button" onClick={() => this.gamecheck()}>
             <h3>check</h3>
           </div>
-					<div className="button">
-						<h3>menu</h3>
-					</div>
+					   <div className="button" onClick={() => this.setRank()}><h3>rank {this.state.prerank}</h3></div> 
+            <div className="button" onClick={() => this.setDiff()}><h3>level {this.state.predifficulty}</h3></div>  
+            <div className="button" onClick={() => this.load()}><h3>select</h3></div> 
 
         <div className="status">
           {this.state.status}

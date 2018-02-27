@@ -13,6 +13,7 @@ body {
 /*  background-color: #87CEEB;*/
   text-align: center;
   width: 100%;
+	z-index: 1;
   
 }
 
@@ -164,4 +165,26 @@ body {
   color: #FEFDE3;
 }
 
+.buttonMenu {
+  position: relative;
+  background-color: #87CEEB;
+  font-size: 7px;
+	font-size: 0.7rem;
+  color: #FFFFFF;
+  width: 60px;
+	width: 6rem;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
 
+.menu {
+	z-index: 1;
+	position: relative;
+}
+.menuItem {
+	display: block;
+}
