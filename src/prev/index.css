@@ -7,7 +7,6 @@ body {
 }
 
 .dashboard {
-	display: inline-flex;
   padding: 4px;
   background-color: #87CEEB;
   text-align: center;
@@ -23,7 +22,7 @@ body {
 }
 
 .game {
-/* changes when rank changes in game.js */
+    /* changes when rank changes in game.js */
 }
 
 .table {
@@ -52,7 +51,6 @@ body {
   padding: 4px 4px;
   text-decoration: none;
   font-size: 16px;
-	font-size: 1.6rem;
 }
 
 
@@ -62,7 +60,6 @@ body {
   border: 1px solid #999;
   float: left;
   font-size: 24px;
-	font-size: 2.4rem;
   font-weight: bold;
   line-height: 34px;
   height: 42px;
@@ -79,7 +76,6 @@ body {
   border: 1px solid #999;
   float: left;
   font-size: 24px;
-	font-size: 2.4rem;
   font-weight: bold;
   line-height: 34px;
   height: 42px;
@@ -97,39 +93,18 @@ body {
 
 
 .button {
-  position: relative;
-  background-color: #4CAF50;
-  border: 2px solid white;
-  font-size: 14px;
-	font-size: 1.4rem;
-  color: #FFFFFF;
-  width: 200px;
+  background-color: #87CEEB;
+  border: 2px solid #FEFDE3;
+  margin: 1px;
+  color: #FEFDE3;
+  padding: 1px 8px;
   text-align: center;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
   text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.button:after {
-  content: "";
-  background: #90EE90;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px!important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
-}
-
-.button:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
+  display: inline-block;
+  font-size: 14px;
+  width: 130px;
+  -webkit-transition-duration: 0.1s /*Safari*/;
+  transition-duration: 0.1s;
 }
 
 .button:hover {

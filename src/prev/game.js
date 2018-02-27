@@ -203,18 +203,19 @@ class Game extends React.Component {
 
     return (
       <div>
-			<div className="dashboard">
-			<div className="welcome">
+        <div className="welcome">
           <h1>{welcome}</h1>
-			</div>
+        </div>
+
+        <div className="dashboard">
           <div className="button" onClick={() => this.setRank()}>
-            <h3>*rank {this.state.prerank}</h3>
+            <h3>rank {this.state.prerank}</h3>
           </div>
           <div className="button" onClick={() => this.setDiff()}>
-            <h3>*difficulty {this.state.predifficulty}</h3>
+            <h3>difficulty {this.state.predifficulty}</h3>
           </div>
           <div className="button" onClick={() => this.load()}>
-            <h3>*select</h3>
+            <h3>select</h3>
           </div>
           <div className="button" onClick={() => this.start()}>
             {this.startorclear()}
@@ -222,10 +223,10 @@ class Game extends React.Component {
           <div className="button" onClick={() => this.gamecheck()}>
             <h3>check</h3>
           </div>
+        </div>
         <div className="status">
           {this.state.status}
         </div>
-			</div>
         <div className="gamePad">
           <div className="game" >
             <Board
