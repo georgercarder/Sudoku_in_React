@@ -16,7 +16,7 @@ class Game extends React.Component {
       red: Array(16).fill(null),
       win: false,
       message: null,
-      status: <h3>push 'start' to start game</h3>,
+      status: <h3>  > push 'start' to start game</h3>,
       startorclear: 'start',
       started: 0,
       puzzles: this.props.puzzles,
@@ -116,11 +116,11 @@ class Game extends React.Component {
   
   changeStatus(){
     if(this.state.started!==1){
-      this.setState({status: <h3>Push 'start' to start game</h3>})  
+      this.setState({status: <h3>  > push 'start' to start game</h3>})  
     } else if (this.state.win===false&&this.state.message!==1){
-      this.setState({status: <h3>game in progress</h3>});
+      this.setState({status: <h3>  > game in progress</h3>});
     } else if (this.state.win===false&&this.state.message===1){
-      this.setState({status: <h3>nope, keep trying</h3>});
+      this.setState({status: <h3>  > nope, keep trying</h3>});
     }else {
       this.setState({status: <h3>SUDOKU WINNER!</h3>});  
     }

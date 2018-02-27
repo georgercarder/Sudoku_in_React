@@ -9,6 +9,7 @@ body {
 	display: inline-flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 /*  background-color: #87CEEB;*/
   text-align: center;
   width: 100%;
@@ -40,9 +41,8 @@ body {
 .welcome {
   position: relative;
   background-color: #4CAF50;
-  border: 2px solid white;
-  font-size: 14px;
-	font-size: 1.4rem;
+  font-size: 8px;
+	font-size: 0.8rem;
   color: #FFFFFF;
   width: 200px;
   text-align: center;
@@ -56,13 +56,15 @@ body {
 
 .status {
  position: relative;
-  background-color: #4CAF50;
+  background-color: #333333;
+	font-family: 'Ubuntu Mono';
   border: 2px solid white;
-  font-size: 14px;
-	font-size: 1.4rem;
+	padding: 4px;
+  font-size: 7px;
+	font-size: 0.7rem;
   color: #FFFFFF;
   width: 200px;
-  text-align: center;
+	text-align: left;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
@@ -78,16 +80,18 @@ body {
   color: #87CEEB;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
-	font-size: 2.4rem;
+  font-size: 20px;
+	font-size: 2rem;
   font-weight: bold;
   line-height: 34px;
-  height: 42px;
+  height: 38px;
+	height: 3.8rem;
   margin-right: -1px;
   margin-top: -1px;
   padding: 4px;
   text-align: center;
-  width: 42px;
+  width: 38px;
+	width: 3.8rem;
 }
 
 
@@ -95,16 +99,18 @@ body {
   background: #ffff80;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
-	font-size: 2.4rem;
+  font-size: 20px;
+	font-size: 2rem;
   font-weight: bold;
   line-height: 34px;
-  height: 42px;
+  height: 38px;
+	height: 3.8rem;
   margin-right: -1px;
   margin-top: -1px;
   padding: 4px;
   text-align: center;
-  width: 42px;
+  width: 38px;
+	width: 3.8rem;
 }
 
 
@@ -116,11 +122,11 @@ body {
 .button {
   position: relative;
   background-color: #4CAF50;
-  border: 2px solid white;
-  font-size: 14px;
-	font-size: 1.4rem;
+  font-size: 7px;
+	font-size: 0.7rem;
   color: #FFFFFF;
-  width: 200px;
+  width: 100px;
+	width: 10rem;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
