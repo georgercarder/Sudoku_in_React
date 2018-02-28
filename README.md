@@ -1,4 +1,4 @@
-# Sudoku in React v 0.2.0
+# Sudoku in React 
 
 ##This repo consists of the front end to this project.
 
